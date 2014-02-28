@@ -113,20 +113,29 @@
     margin: 0px;
     padding: 0px;
 }
+
+.header-cont {
+    width:100%;
+    background:#fff;
+    position:fixed;
+    top:0px;
+}
  
 .header {
-    background: #fff;
-    height: 32px;
-	width: auto;
+    height:32px;
+    background:#fff;
+    border:5px solid #f00;
+    width:960px;
+    margin:0px auto;
 }
  
 .content {
     width: auto;
     height: auto;
     padding: 10px;
-    margin: 0
+    margin:0px auto;
 }
-	
+
 hr {
 	color: #f00;
 	background-color: #f00;
