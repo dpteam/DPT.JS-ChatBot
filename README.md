@@ -1,12 +1,10 @@
 JS.ChatBot
 ==========
 
-## JS.ChatBot - this is a simple ChatBot
-## Made on JavaScript + HTML5
+JS.ChatBot - is a simple chat-bot, written in HTML5, JavaScript and CSS.
 
 ### Currently working on:
-	* Language selection
-	* HTML5 for legacy IE 6,7,8 support
+	* Rewrite language selection
 	* HTML5 Upper bar
 
 ### Coming soon:
