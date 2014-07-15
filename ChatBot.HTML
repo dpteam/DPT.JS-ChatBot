@@ -17,6 +17,7 @@
               testMode: true,
               onChange: function(evt){
                   document.getElementById("chat-log").value += "Bot-Core: " + "Changed Lang To: " + evt.selectedItem + "\n";
+				  language = evt.selectedItem;
               }
       //                ,afterLoad: function(evt){
       //                    alert("The selected language has been loaded");
@@ -64,7 +65,7 @@
       <div id="container">
         <div id="polyglotLanguageSwitcher">
           <form action="#">
-            <select id="polyglot-language-options">
+            <select id="LanguageSelect">
               <option id="en" value="en">English</option>
               <option id="ru" value="ru" selected>Русский</option>
             </select>

@@ -1,56 +1,53 @@
-var RndPhraseRU = new Array(23);
-for (var i = 0; i < RndPhraseRU.length; i++)
-RndPhraseRU[i]  = Math.floor(Math.random() * (RndPhraseRU.length));
-RndPhraseRU[0]  = "Привет";
-RndPhraseRU[1]  = "Не знаю";
-RndPhraseRU[2]  = "Да";
-RndPhraseRU[3]  = "Нет";
-RndPhraseRU[4]  = "Ну-ну...";
-RndPhraseRU[5]  = "Может быть";
-RndPhraseRU[6]  = "Серьезно?";
-RndPhraseRU[7]  = "Когда?";
-RndPhraseRU[8]  = "Как?";
-RndPhraseRU[9]  = "Где?";
-RndPhraseRU[10] = "O_o";
-RndPhraseRU[11] = "Ээээ...";
-RndPhraseRU[12] = "Да пошел ты!";
-RndPhraseRU[13] = "Да?";
-RndPhraseRU[14] = "Хватит";
-RndPhraseRU[15] = "???";
-RndPhraseRU[16] = "Не надо.";
-RndPhraseRU[17] = "Хорошо";
-RndPhraseRU[18] = "Зачем?";
-RndPhraseRU[19] = "Не понимаю...";
-RndPhraseRU[20] = "Всмысле?";
-RndPhraseRU[21] = "Да ты что!";
-RndPhraseRU[22] = "Я думаю...";
+var debug = 1;
+var language;
 
-var RndPhraseEN = new Array(23);
-for (var i = 0; i < RndPhraseEN.length; i++)
-RndPhraseEN[i]  = Math.floor(Math.random() * (RndPhraseEN.length));
-RndPhraseEN[0]  = "Hello";
-RndPhraseEN[1]  = "I'm don't know";
-RndPhraseEN[2]  = "Yes";
-RndPhraseEN[3]  = "No";
-RndPhraseEN[4]  = "Yep-Yep...";
-RndPhraseEN[5]  = "May be";
-RndPhraseEN[6]  = "Seriously?";
-RndPhraseEN[7]  = "When?";
-RndPhraseEN[8]  = "How?";
-RndPhraseEN[9]  = "Where?";
-RndPhraseEN[10] = "O_o";
-RndPhraseEN[11] = "Emmm...";
-RndPhraseEN[12] = "Fuck you!";
-RndPhraseEN[13] = "Yes?";
-RndPhraseEN[14] = "Stop!";
-RndPhraseEN[15] = "???";
-RndPhraseEN[16] = "Dont!";
-RndPhraseEN[17] = "Good";
-RndPhraseEN[18] = "Why?";
-RndPhraseEN[19] = "I'm can't understand...";
-RndPhraseEN[20] = "What you Mean?";
-RndPhraseEN[21] = "Are you crazy!";
-RndPhraseEN[22] = "I thinking...";
+function getLanguage() {
+	var languageSelect = document.getElementById("LanguageSelect");
+	var selectedLanguage = languageSelect;
+	if((selectedLanguage == "ru") || (selectedLanguage = "en")) {
+		if (selectedLanguage == 'en') {
+			if(debug==1) {
+				document.getElementById("chat-log").value += "Bot-Debug: Language en loaded." + "\n";
+			}
+			language = "en";
+		} else if (selectedLanguage =='ru') {
+			if(debug==1) {
+				document.getElementById("chat-log").value += "Bot-Debug: Language ru loaded." + "\n";
+			}
+			language = "ru";
+		}
+	}
+	else
+	{
+		document.getElementById("chat-log").value += "Bot-Error: Language not loaded" + "\n";
+	}
+}
+
+function getPhrase() {
+	if(getLanguage() == "ru") {
+		//i = Math.floor(Math.random() * RndPhraseRu.length);
+		document.getElementById("phrase").value += "Ты: " + document.getElementById("you").value + "\n" + "Чат-Бот: " + RndPhraseRU[Math.floor(Math.random() * RndPhraseRU.length)] + "\n";
+		//return RndPhraseRu[i];
+	}
+	else {
+		//i = Math.floor(Math.random() * RndPhraseEn.length);
+		document.getElementById("phrase").value += "Ты: " + document.getElementById("you").value + "\n" + "Чат-Бот: " + RndPhraseRU[Math.floor(Math.random() * RndPhraseRU.length)] + "\n";
+		//return RndPhraseEn[i];
+	}
+}
+
+var RndPhraseRu = ["Привет","Не знаю","Да","Нет","Ну-ну...","Может быть",
+"Серьезно?","Когда?","Как?","Где?","O_o","Ээээ...","Да пошел ты!",
+"Да?","???","Хватит","Не надо","Хорошо","Зачем?",
+"Не понимаю","Всмысле?","Да ты что!","Я думаю..."];
+
+var RndPhraseEn = new Array(23);
+for (var i = 0; i < RndPhraseEn.length; i++)
+
+var RndPhraseEn = ["Hello!","I don't know","Yes","No","Yep-yep","Maybe",
+"Seriously?","When?","How?","Where?","O_o","Emmm...","Fuck yourself!",
+"Yes?","Stop!","Yes?","???","I dunno, lol","Good!","Why?",
+"I'm don't understand", "What do you mean?","You are crazy!"];
 
 function init() {
     // выходим, если функция уже выполнялась
@@ -113,16 +110,5 @@ window.onload = init;
 
 function say()
 {
-	if(langval !== null && langval.value == "ru")
-	{
-		document.getElementById("phrase").value += "Ты: " + document.getElementById("you").value + "\n" + "Чат-Бот: " + RndPhraseRU[Math.floor(Math.random() * RndPhraseRU.length)] + "\n";
-	}
-	if(langval !== null && langval.value == "en")
-	{
-		document.getElementById("phrase").value += "You: " + document.getElementById("you").value + "\n" + "Bot-Chat: " + RndPhraseEN[Math.floor(Math.random() * RndPhraseEN.length)] + "\n";
-	}
-	else if(langval == null)
-	{
-		document.getElementById("chat-log").value += "Bot-Error: Language not Defined" + "\n";
-	}
+	getPhrase();
 }
