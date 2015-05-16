@@ -1,53 +1,29 @@
-var debug = 1;
-var language;
-
-function getLanguage() {
-	var languageSelect = document.getElementById("LanguageSelect");
-	var selectedLanguage = languageSelect;
-	if((selectedLanguage == "ru") || (selectedLanguage = "en")) {
-		if (selectedLanguage == 'en') {
-			if(debug==1) {
-				document.getElementById("chat-log").value += "Bot-Debug: Language en loaded." + "\n";
-			}
-			language = "en";
-		} else if (selectedLanguage =='ru') {
-			if(debug==1) {
-				document.getElementById("chat-log").value += "Bot-Debug: Language ru loaded." + "\n";
-			}
-			language = "ru";
-		}
-	}
-	else
-	{
-		document.getElementById("chat-log").value += "Bot-Error: Language not loaded" + "\n";
-	}
-}
-
-function getPhrase() {
-	if(getLanguage() == "ru") {
-		//i = Math.floor(Math.random() * RndPhraseRu.length);
-		document.getElementById("phrase").value += "Ты: " + document.getElementById("you").value + "\n" + "Чат-Бот: " + RndPhraseRU[Math.floor(Math.random() * RndPhraseRU.length)] + "\n";
-		//return RndPhraseRu[i];
-	}
-	else {
-		//i = Math.floor(Math.random() * RndPhraseEn.length);
-		document.getElementById("phrase").value += "Ты: " + document.getElementById("you").value + "\n" + "Чат-Бот: " + RndPhraseRU[Math.floor(Math.random() * RndPhraseRU.length)] + "\n";
-		//return RndPhraseEn[i];
-	}
-}
-
-var RndPhraseRu = ["Привет","Не знаю","Да","Нет","Ну-ну...","Может быть",
-"Серьезно?","Когда?","Как?","Где?","O_o","Ээээ...","Да пошел ты!",
-"Да?","???","Хватит","Не надо","Хорошо","Зачем?",
-"Не понимаю","Всмысле?","Да ты что!","Я думаю..."];
-
-var RndPhraseEn = new Array(23);
-for (var i = 0; i < RndPhraseEn.length; i++)
-
-var RndPhraseEn = ["Hello!","I don't know","Yes","No","Yep-yep","Maybe",
-"Seriously?","When?","How?","Where?","O_o","Emmm...","Fuck yourself!",
-"Yes?","Stop!","Yes?","???","I dunno, lol","Good!","Why?",
-"I'm don't understand", "What do you mean?","You are crazy!"];
+var RndPhraseRU = new Array(23);
+for (var i = 0; i < RndPhraseRU.length; i++)
+RndPhraseRU[i]  = Math.floor(Math.random() * (RndPhraseRU.length));
+RndPhraseRU[0]  = "Привет";
+RndPhraseRU[1]  = "Не знаю";
+RndPhraseRU[2]  = "Да";
+RndPhraseRU[3]  = "Нет";
+RndPhraseRU[4]  = "Ну-ну...";
+RndPhraseRU[5]  = "Может быть";
+RndPhraseRU[6]  = "Серьезно?";
+RndPhraseRU[7]  = "Когда?";
+RndPhraseRU[8]  = "Как?";
+RndPhraseRU[9]  = "Где?";
+RndPhraseRU[10] = "O_o";
+RndPhraseRU[11] = "Ээээ...";
+RndPhraseRU[12] = "Да пошел ты!";
+RndPhraseRU[13] = "Да?";
+RndPhraseRU[14] = "Хватит";
+RndPhraseRU[15] = "???";
+RndPhraseRU[16] = "Не надо.";
+RndPhraseRU[17] = "Хорошо";
+RndPhraseRU[18] = "Зачем?";
+RndPhraseRU[19] = "Не понимаю...";
+RndPhraseRU[20] = "Всмысле?";
+RndPhraseRU[21] = "Да ты что!";
+RndPhraseRU[22] = "Я думаю...";
 
 function init() {
     // выходим, если функция уже выполнялась
@@ -110,5 +86,5 @@ window.onload = init;
 
 function say()
 {
-	getPhrase();
+	document.getElementById("phrase").value += "Ты: " + document.getElementById("you").value + "\n" + "Чат-Бот: " + RndPhraseRU[Math.floor(Math.random() * RndPhraseRU.length)] + "\n";
 }

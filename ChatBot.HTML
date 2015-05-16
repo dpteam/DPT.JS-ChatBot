@@ -9,33 +9,7 @@
     <link href="css/buttons.css" type="text/css" rel="stylesheet">
     <link href="css/layout.css" type="text/css" rel="stylesheet">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/jquery.polyglot.language.switcher.js" type="text/javascript"></script>
     <script type="text/javascript">
-      $(document).ready(function() {
-          $('#polyglotLanguageSwitcher').polyglotLanguageSwitcher({
-      effect: 'fade',
-              testMode: true,
-              onChange: function(evt){
-                  document.getElementById("chat-log").value += "Bot-Core: " + "Changed Lang To: " + evt.selectedItem + "\n";
-				  language = evt.selectedItem;
-              }
-      //                ,afterLoad: function(evt){
-      //                    alert("The selected language has been loaded");
-      //                },
-      //                beforeOpen: function(evt){
-      //                    alert("before open");
-      //                },
-      //                afterOpen: function(evt){
-      //                    alert("after open");
-      //                },
-      //                beforeClose: function(evt){
-      //                    alert("before close");
-      //                },
-      //                afterClose: function(evt){
-      //                    alert("after close");
-      //                }
-      });
-      });
       $('textarea')
       .focus(function() { 
       $(this).css("background", "none"); 
@@ -59,18 +33,10 @@
   </head>
   <body>
     <noscript>
-      <meta http-equiv="refresh" content="0; URL=./sys/badbrowser.html">
+      <meta http-equiv="refresh" content="0; URL="http://browsehappy.com">
     </noscript>
     <div class="header-cont">
       <div id="container">
-        <div id="polyglotLanguageSwitcher">
-          <form action="#">
-            <select id="LanguageSelect">
-              <option id="en" value="en">English</option>
-              <option id="ru" value="ru" selected>Русский</option>
-            </select>
-          </form>
-        </div>
       </div>
 	  <hr>
     </div>
