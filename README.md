@@ -1,6 +1,8 @@
 JS.ChatBot
 ==========
 
+[![DepShield Badge](https://depshield.sonatype.org/badges/dpteam/DPT.JS-ChatBot/depshield.svg)](https://depshield.github.io)
+
 JS.ChatBot - is a simple chat-bot, written in HTML5, JavaScript and CSS.
 
 ### Currently working on:
